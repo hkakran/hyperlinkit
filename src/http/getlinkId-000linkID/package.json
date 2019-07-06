@@ -1,0 +1,7 @@
+{
+  "name": "begin-app-getlinkId-000linkID",
+  "dependencies": {
+    "@architect/functions": "latest",
+    "@begin/data": "latest"
+  }
+}
