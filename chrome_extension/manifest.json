@@ -1,0 +1,6 @@
+{
+  "name": "HyperLinkIt",
+  "version": "1.0",
+  "description": "Generate url to any highlighted text on the page",
+  "manifest_version": 2
+}
