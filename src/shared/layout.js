@@ -17,7 +17,6 @@ function html(body) {
   return `<!doctype html>
 <html lang=en>
 <head>
-<meta http-equiv="Refresh" content="5; url=https://www.w3docs.com" />
 <meta charset=utf-8>
 <title>hyperlinkit</title>
 <link rel="stylesheet" href="https://static.begin.app/starter/default.css">
