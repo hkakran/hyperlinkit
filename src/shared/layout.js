@@ -17,13 +17,14 @@ function html(body) {
   return `<!doctype html>
 <html lang=en>
 <head>
+<meta http-equiv="Refresh" content="5; url=https://www.w3docs.com" />
 <meta charset=utf-8>
-<title>Hi!</title>
+<title>hyperlinkit</title>
 <link rel="stylesheet" href="https://static.begin.app/starter/default.css">
 <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" rel="icon" type="image/x-icon">
 </head>
 <body>
-<h1 class="center-text">RESTful API</h1>
+<h1 class="center-text">HyperlinkIt</h1>
 ${body}
 </body>
 </html>`
