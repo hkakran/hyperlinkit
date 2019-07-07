@@ -6,6 +6,7 @@ get /
 get /api/links
 post /api/links
 get /api/links/:linkID
+delete /api/links/:linkID
 
 @tables
 data
