@@ -1,9 +1,7 @@
-let data = require('@begin/data')
-
-exports.handler = async function destroy(req) {
-  await data.destroy({
-    table: 'links',
-    key: req.params.linkID
-  })
-  return {statusCode: 201}
+// learn more about http functions here: https://arc.codes/guides/http
+exports.handler = async function http(req) {
+  return {
+    headers: {'content-type': 'text/html; charset=utf8'}, 
+    body: '<b>hello world from nodejs<b>'
+  }
 }

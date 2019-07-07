@@ -1,12 +1,7 @@
-let data = require('@begin/data')
-
-exports.handler = async function getlinks(req) {
-  let link = await data.get({
-    table: 'links',
-    key: req.params.linkID
-  })
-  console.log(link)
+// learn more about http functions here: https://arc.codes/guides/http
+exports.handler = async function http(req) {
   return {
-    body: JSON.stringify(link)
+    headers: {'content-type': 'text/html; charset=utf8'}, 
+    body: '<b>hello world from nodejs<b>'
   }
 }

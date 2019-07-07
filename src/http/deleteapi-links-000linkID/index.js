@@ -1,13 +1,9 @@
-// Enable secure sessions, express-style middleware, and more:
-// https://docs.begin.com/en/functions/http/
-//
-// let begin = require('@architect/functions')
+let data = require('@begin/data')
 
-exports.handler = async function http(req) {
-  console.log(req)
-  return {
-    status: 200,
-    type: 'application/json; charset=utf8',
-    body: JSON.stringify({ok: true})
-  }
+exports.handler = async function destroy(req) {
+  await data.destroy({
+    table: 'links',
+    key: req.params.linkID
+  })
+  return {statusCode: 201}
 }
