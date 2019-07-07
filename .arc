@@ -4,6 +4,7 @@ design-8er
 @http
 get /
 get /api/links
+post /api/links
 
 @tables
 data
