@@ -13,12 +13,12 @@ exports.handler = async function http(req) {
     url = "https://www.medium.com";
   }
 
-  let url = await data.get({
-    table: 'links',
-    key: req.params.linkID
-  })
+  // let url = await data.get({
+  //   table: 'links',
+  //   key: req.params.linkID
+  // })
   // to redirect by simulating a click
-  // window.location.href = url;
+  // window.lolinkion.href = url;
   let html = `
   <!doctype html>
   <html lang=en>

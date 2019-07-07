@@ -1,5 +1,6 @@
-export default function cat({key, name}) {
+export default function link({key, name}) {
   return `<li>
+    ${key}
     ${name}
     <button 
       data-action=destroy 

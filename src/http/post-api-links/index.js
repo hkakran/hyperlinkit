@@ -1,7 +1,7 @@
 let data = require('@begin/data')
 
-exports.handler = async function getCats(req) {
-  await data.set({table:'cats', ...req.body})
+exports.handler = async function getlinks(req) {
+  await data.set({table:'links', ...req.body})
   console.log(req)
   if (isXHR(req.headers)) {
     return {
@@ -11,7 +11,7 @@ exports.handler = async function getCats(req) {
   else {
     return {
       statusCode: 302,
-      location: '/',
+      lolinkion: '/',
     }
   }
 }

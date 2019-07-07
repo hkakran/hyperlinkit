@@ -5,29 +5,26 @@
   }
 </style>
 
-<form action=/api/cats method=post>
-  <input type=text name=name placeholder="cat name">
-  <select name=breed>
-    <option value=tabby>tabby</option>
-    <option value=black>black</option>
-  </select>
-  <button type=submit>save cat</button>
+<form action=/api/links method=post>
+  <input type=text name=id placeholder="link id">
+  <input type=text name=url placeholder="link url">
+  <button type=submit>save link</button>
 </form>
 
 <main>load a link via your name.. eg: /linkId/soni.... </main>
 
 <script type=module>
-import cats from '/cats.js'
-import cat from '/cat.js'
+import links from '/links.js'
+import link from '/link.js'
 
 // bind form
 let form = document.querySelector('form')
 form.onsubmit = async function submit(e) {
   e.preventDefault()
-  let name = form.querySelector('input').value
-  let breed = form.querySelector('select').value
-  // create the cat
-  await cats.create({name, breed})
+  let id = form.querySelector("input[name='id']").value
+  let url = form.querySelector("input[name='url']").value
+  // create the link
+  await links.create({id, url})
   // reset the list
   await main()
 }
@@ -36,16 +33,16 @@ form.onsubmit = async function submit(e) {
 async function main() {
   // // render list
   let main = document.querySelector('main')
-  let json = await cats.read()
-  let html = json.map(cat).join('')
+  let json = await links.read()
+  let html = json.map(link).join('')
   main.innerHTML = html
   // bind events
   document.querySelectorAll('button[data-action=destroy]').forEach(n=> {
     n.onclick = async function destroy(e) {
       e.preventDefault()
-      let catID = e.target.dataset.key
+      let linkID = e.target.dataset.key
       e.target.parentNode.remove() 
-      await cats.destroy(catID)
+      await links.destroy(linkID)
     }
   })
 }
