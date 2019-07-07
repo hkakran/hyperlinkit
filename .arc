@@ -3,7 +3,6 @@ design-8er
 
 @http
 get /
-patch /api/cats/:catID
 delete /api/cats/:catID
 
 @tables
