@@ -2,23 +2,22 @@
 // https://docs.begin.com/en/functions/http/
 //
 // let begin = require('@architect/functions')
-
+let data = require('@begin/data')
 // HTTP function
 exports.handler = async function http(req) {
   console.log(req)
-  let url;
-  if (req.params.linkID == 'soni') {
-    url = "https://www.w3docs.com";
-  } else if (req.params.linkID == 'karan') {
-    url = "https://www.medium.com";
+  let foundLink = await data.get({
+    table: 'links',
+    key: req.params.linkID
+  })
+  if (!foundLink) {
+    return {
+      statusCode: 404
+    }
   }
-
-  // let url = await data.get({
-  //   table: 'links',
-  //   key: req.params.linkID
-  // })
+  let url = foundLink.url;
   // to redirect by simulating a click
-  // window.lolinkion.href = url;
+  // window.location.href = url;
   let html = `
   <!doctype html>
   <html lang=en>

@@ -1,7 +1,8 @@
-export default function link({key, name}) {
+export default function link({key, url, selector}) {
   return `<li>
     ${key}
-    ${name}
+    ${url}
+    ${selector}
     <button 
       data-action=destroy 
       data-key=${key}>destroy</button>

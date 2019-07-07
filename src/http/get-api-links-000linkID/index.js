@@ -5,6 +5,7 @@ exports.handler = async function getlinks(req) {
     table: 'links',
     key: req.params.linkID
   })
+  console.log(link);
   return {
     body: JSON.stringify(link)
   }

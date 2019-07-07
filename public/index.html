@@ -6,8 +6,8 @@
 </style>
 
 <form action=/api/links method=post>
-  <input type=text name=id placeholder="link id">
   <input type=text name=url placeholder="link url">
+  <input type=text name=selector placeholder="unique css selector">
   <button type=submit>save link</button>
 </form>
 
@@ -21,10 +21,10 @@ import link from '/link.js'
 let form = document.querySelector('form')
 form.onsubmit = async function submit(e) {
   e.preventDefault()
-  let id = form.querySelector("input[name='id']").value
   let url = form.querySelector("input[name='url']").value
+  let selector = form.querySelector("input[name='selector']").value
   // create the link
-  await links.create({id, url})
+  await links.create({url, selector})
   // reset the list
   await main()
 }

@@ -1,15 +1,16 @@
 let headers = {
-  'Content-Type': 'applilinkion/json',
+  'Content-Type': 'application/json',
   'X-Requested-With': 'XMLHttpRequest'
 }
 
 async function create(link) {
   console.log('create', link)
-  await fetch('/api/links', {
+  let response = await fetch('/api/links', {
     method: 'post',
     body: JSON.stringify(link),
     headers
   })
+  console.log(response);
 }
 
 async function read(linkID) {
