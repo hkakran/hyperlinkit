@@ -3,7 +3,6 @@ design-8er
 
 @http
 get /
-get /api/links
 
 @tables
 data
