@@ -12,7 +12,7 @@ exports.handler = async function getlinks(req) {
   else {
     return {
       statusCode: 302,
-      lolinkion: '/',
+      location: '/',
     }
   }
 }

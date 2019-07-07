@@ -92,7 +92,7 @@ test('data.set accepts an array to batch save documents', async t => {
   t.plan(1)
   let result = await data.set([{
     table: 'tasks',
-    message: 'linkch sunshine every day',
+    message: 'catch sunshine every day',
     complete: true,
     timeframe: new Date(Date.now()).toISOString()
   },
