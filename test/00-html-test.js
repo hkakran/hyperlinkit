@@ -22,7 +22,7 @@ test('get /', async t => {
     var result = await tiny.get({url})
     t.ok(true, 'got result',console.log(result.toString().substring(50) + '...'))
   } 
-  linkch(e) {
+  catch(e) {
     t.fail(e)
     console.log(e.body)
   }
