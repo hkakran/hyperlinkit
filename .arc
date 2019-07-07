@@ -5,6 +5,7 @@ design-8er
 get /
 get /api/links
 post /api/links
+get /api/links/:linkID
 
 @tables
 data
