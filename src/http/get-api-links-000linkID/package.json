@@ -1,5 +1,5 @@
 {
-  "name": "begin-app-getapi-links",
+  "name": "begin-app-getapi-links-000linkID",
   "dependencies": {
     "@architect/functions": "latest",
     "@begin/data": "latest"
