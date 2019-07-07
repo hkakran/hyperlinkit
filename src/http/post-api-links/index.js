@@ -1,7 +1,7 @@
 let data = require('@begin/data')
 
 exports.handler = async function getlinks(req) {
-  console.log("Save link", req);
+  console.log("Save link", req)
   let response = await data.set({table:'links', ...req.body})
   if (isXHR(req.headers)) {
     return {

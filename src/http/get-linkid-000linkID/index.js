@@ -15,7 +15,7 @@ exports.handler = async function http(req) {
       statusCode: 404
     }
   }
-  let url = foundLink.url;
+  let url = foundLink.url
   // to redirect by simulating a click
   // window.location.href = url;
   let html = `
