@@ -3,12 +3,10 @@ design-8er
 
 @http
 get /
-get /api/links
-get /api/links/:linkID
-post /api/links
-patch /api/links/:linkID
-delete /api/links/:linkID
-get /linkid/:linkID
+get /api/cats/:catID
+post /api/cats
+patch /api/cats/:catID
+delete /api/cats/:catID
 
 @tables
 data
