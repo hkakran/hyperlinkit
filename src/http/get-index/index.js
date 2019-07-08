@@ -1,4 +1,4 @@
-let arc = require('@architect/functions')
+// let arc = require('@architect/functions')
 
 /**
  * arc.proxy.public
@@ -7,14 +7,27 @@ let arc = require('@architect/functions')
  * - very configurable! documented here: https://arc.codes/guides/spa
  */
 
-exports.handler = arc.proxy.public({
-  spa: false, //return 404 if route not found
-  plugins:  {
-    html: [
-      '@architect/shared/layout',// layout is a custom plugin in src/shared
-      // '@architect/proxy-plugin-html-urls',
-    ],
-    css: ['@architect/proxy-plugin-css-urls'],
-    mjs: ['@architect/proxy-plugin-mjs-urls'],
+exports.handler = async function http() {
+  return {
+    status: 201,
+    type: 'text/html; charset=utf8',
+    body: `
+      <!doctype html>
+      <html>
+        <body>hello world</body>
+      </html>
+   `
   }
-})
+}
+
+// exports.handler = arc.proxy.public({
+//   spa: false, //return 404 if route not found
+//   plugins:  {
+//     html: [
+//       '@architect/shared/layout',// layout is a custom plugin in src/shared
+//       // '@architect/proxy-plugin-html-urls',
+//     ],
+//     css: ['@architect/proxy-plugin-css-urls'],
+//     mjs: ['@architect/proxy-plugin-mjs-urls'],
+//   }
+// })
