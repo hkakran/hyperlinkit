@@ -9,6 +9,10 @@ get /api/links/:linkID
 delete /api/links/:linkID
 get /link/:linkID
 
+@static
+staging hk-design-8er-stage-bukkit
+production hk-design-8er-prod-bukkit
+
 @tables
 data
   scopeID *String

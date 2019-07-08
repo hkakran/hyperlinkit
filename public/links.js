@@ -17,7 +17,6 @@ async function read(linkID) {
   console.log('read', linkID)
   let url = linkID? `/api/links/${linkID}` : '/api/links'
   let result = await fetch(url)
-  console.log(JSON.stringify(result.text()));
   return await result.json()
 }
 

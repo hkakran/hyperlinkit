@@ -11,7 +11,7 @@
   <button type=submit>save link</button>
 </form>
 
-<main>load a link via your name.. eg: /linkId/soni.... </main>
+<main>loading saved links... </main>
 
 <script type=module>
 import links from '/links.js'
@@ -34,6 +34,7 @@ async function main() {
   // // render list
   let main = document.querySelector('main')
   let json = await links.read()
+  console.log(json);
   let html = json.map(link).join('')
   main.innerHTML = html
   // bind events
