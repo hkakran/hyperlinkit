@@ -8,7 +8,7 @@ let arc = require('@architect/functions')
  */
 
 exports.handler = arc.proxy.public({
-  spa: true,
+  spa: false, //return 404 if route not found
   plugins:  {
     html: [
       '@architect/shared/layout',// layout is a custom plugin in src/shared
