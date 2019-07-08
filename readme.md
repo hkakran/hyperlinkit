@@ -20,3 +20,11 @@
 - [Creating new routes](https://docs.begin.com/en/functions/creating-new-functions) - basics on expanding the capabilities of your app
 
 Head to [docs.begin.com](https://docs.begin.com/) to learn more!
+
+Iframe - https://stackoverflow.com/questions/8284217/iframe-and-external-website
+
+## Chrome extension - references
+
+https://stackoverflow.com/questions/1482832/how-to-get-all-elements-that-are-highlighted
+https://github.com/fczbkk/css-selector-generator
+https://stackoverflow.com/questions/2068272/getting-a-jquery-selector-for-an-element
