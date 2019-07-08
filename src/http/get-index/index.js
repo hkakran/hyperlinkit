@@ -1,4 +1,4 @@
-// let arc = require('@architect/functions')
+let arc = require('@architect/functions')
 
 /**
  * arc.proxy.public
@@ -7,19 +7,7 @@
  * - very configurable! documented here: https://arc.codes/guides/spa
  */
 
-exports.handler = async function http() {
-  return {
-    status: 201,
-    type: 'text/html; charset=utf8',
-    body: `
-      <!doctype html>
-      <html>
-        <body>hello world</body>
-      </html>
-   `
-  }
-}
-
+exports.handler = arc.proxy.public({spa:true})
 // exports.handler = arc.proxy.public({
 //   spa: false, //return 404 if route not found
 //   plugins:  {
