@@ -1,8 +1,8 @@
 let data = require('@begin/data')
 
-exports.handler = async function getlinks() {
-  let links = await data.get({table:'links'})
+exports.handler = async function getCats() {
+  let cats = await data.get({table:'cats'})
   return {
-    body: JSON.stringify(links)
+    body: JSON.stringify(cats)
   }
 }
