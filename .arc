@@ -3,12 +3,11 @@ design-8er
 
 @http
 get /
-get /api/links
 post /api/links
 get /api/links/:linkID
 delete /api/links/:linkID
 get /link/:linkID
-get /tests/links
+get /api/links
 
 @tables
 data
