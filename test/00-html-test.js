@@ -28,6 +28,22 @@ test('get /', async t => {
   }
 })
 
+// check for 201 and json
+test('get /api/links', async t => {
+  t.plan(2)
+  try {
+    var url = 'http://localhost:3333/api/links'
+    var result = await tiny.get({url})
+    t.equal(result.body.length, 0, 'got body', console.log(result.body))
+    t.equal(result.headers['content-type'], 'application/json',
+      'got json', console.log(result.headers['content-type']))
+  } 
+  catch(e) {
+    t.fail(e)
+    console.log(e.body)
+  }
+})
+
 test('shut down the sandbox', t=> {
   t.plan(1)
   end()
