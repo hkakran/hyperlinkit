@@ -8,6 +8,7 @@ post /api/links
 get /api/links/:linkID
 delete /api/links/:linkID
 get /link/:linkID
+get /tests/links
 
 @tables
 data
