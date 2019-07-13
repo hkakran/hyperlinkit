@@ -11,15 +11,14 @@ let arc = require('@architect/functions')
 //     body: '<h1>Hello World! 🎉</h1>'
 //   }
 // }
-exports.handler = arc.proxy.public({spa: true});
-// exports.handler = arc.proxy.public({
-//   spa: false, //return 404 if route not found
-//   plugins:  {
-//     html: [
-//       '@architect/shared/layout',// layout is a custom plugin in src/shared
-//       // '@architect/proxy-plugin-html-urls',
-//     ],
-//     css: ['@architect/proxy-plugin-css-urls'],
-//     mjs: ['@architect/proxy-plugin-mjs-urls'],
-//   }
-// })
+exports.handler = arc.proxy.public({
+  spa: false, //return 404 if route not found
+  plugins:  {
+    html: [
+      '@architect/shared/layout',// layout is a custom plugin in src/shared
+      // '@architect/proxy-plugin-html-urls',
+    ],
+    css: ['@architect/proxy-plugin-css-urls'],
+    mjs: ['@architect/proxy-plugin-mjs-urls'],
+  }
+})
