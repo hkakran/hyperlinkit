@@ -16,7 +16,10 @@ async function create(link) {
 async function read(linkID) {
   console.log('read', linkID)
   let url = linkID? `/api/links/${linkID}` : '/api/links'
-  let result = await fetch(url)
+  let result = await fetch(url, {
+    method: 'get',
+    headers
+  })
   return await result.json()
 }
 
