@@ -1,5 +1,5 @@
 {
-  "name": "begin-app-getapi-links",
+  "name": "begin-app-get-api-links",
   "dependencies": {
     "@architect/functions": "latest",
     "@begin/data": "latest"
