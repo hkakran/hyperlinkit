@@ -3,12 +3,8 @@
   "version": "1.0",
   "description": "Generate url to any highlighted text on the page",
   "manifest_version": 2,
-  "permissions": ["activeTab","declarativeContent","storage",  "<all_urls>"],
-  "background": {
-   "scripts": ["background.js"],
-   "persistent": false
-  },
-  "page_action": {
+  "permissions": ["activeTab",  "<all_urls>"],
+  "browser_action": {
       "default_title": "Selected Text",
       "default_popup": "popup.html"
   },
