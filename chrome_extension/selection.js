@@ -12,7 +12,7 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
       console.log("Selection: ", selection)
       if (selection.rangeCount > 0) {
         let range = selection.getRangeAt(0);
-        if (range) {
+        if (range != undefined) {
           containerElement = range.commonAncestorContainer;
           if (containerElement.nodeType != 1)
           {
@@ -20,14 +20,19 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
           }
           console.log("Element: ", containerElement);
           let selector = my_selector_generator.getSelector(containerElement);
-          console.log("Resp: ", JSON.stringify({selector: selector, url: window.location.href}));
-          sendResponse({selection_found: true,selector: selector, url: window.location.href})
+          response = {selection_found: true,selector: selector, url: window.location.href}
+          console.log("Resp: ", JSON.stringify(response));
+          sendResponse(response)
         }
         else {
+          console.log("Resp else 1: ", JSON.stringify(response));
+
           sendResponse({selection_found:false})
         }
       }
       else {
+        console.log("Resp else 2: ", JSON.stringify(response));
+
         sendResponse({selection_found:false})
       }
   }

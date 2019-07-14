@@ -10,7 +10,8 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
           },
           body: JSON.stringify({selector:response.selector, url:response.url})
         })
-        .then(resp => {
+        .then(resp => resp.json())
+        .then (resp => {
             console.log("Response:", resp)
             url = "https://wonder-ebi.begin.app/api/cats/" + resp.key
             document.getElementById('text').innerHTML = url
