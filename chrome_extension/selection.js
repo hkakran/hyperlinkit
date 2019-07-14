@@ -10,22 +10,26 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
       let my_selector_generator = new CssSelectorGenerator;
       let selection = window.getSelection();
       console.log("Selection: ", selection)
-      if (selection.rangeCount < 0) {
-        return;
+      if (selection.rangeCount > 0) {
+        let range = selection.getRangeAt(0);
+        if (range) {
+          containerElement = range.commonAncestorContainer;
+          if (containerElement.nodeType != 1)
+          {
+            containerElement = containerElement.parentNode
+          }
+          console.log("Element: ", containerElement);
+          let selector = my_selector_generator.getSelector(containerElement);
+          console.log("Resp: ", JSON.stringify({selector: selector, url: window.location.href}));
+          sendResponse({selection_found: true,selector: selector, url: window.location.href})
+        }
+        else {
+          sendResponse({selection_found:false})
+        }
       }
-      let range = selection.getRangeAt(0);
-      if (!range) {
-        return;
+      else {
+        sendResponse({selection_found:false})
       }
-      containerElement = range.commonAncestorContainer;
-      if (containerElement.nodeType != 1)
-      {
-        containerElement = containerElement.parentNode
-      }
-      console.log("Element: ", containerElement);
-      let selector = my_selector_generator.getSelector(containerElement);
-      console.log("Selector: ", selector);
-      sendResponse({data: selector});
   }
   else
     sendResponse({}); // snub them.
