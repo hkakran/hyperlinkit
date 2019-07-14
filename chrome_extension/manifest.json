@@ -3,16 +3,16 @@
   "version": "1.0",
   "description": "Generate url to any highlighted text on the page",
   "manifest_version": 2,
-  "permissions": ["activeTab",  "<all_urls>"],
+  "permissions": ["activeTab",  "<all_urls>", "storage"],
   "browser_action": {
       "default_title": "Selected Text",
       "default_popup": "popup.html"
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["selection.js"],
       "run_at": "document_start",
+      "matches": ["<all_urls>"],
+      "js": ["selection.js", "node_modules/jquery/dist/jquery.min.js", "link_loader.js"],
       "all_frames": false
     }
   ],

@@ -3,7 +3,8 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {method: "getSelection"}, function(response){
       console.log("Response: ", JSON.stringify(response));
       if (response.selection_found) {
-        fetch('https://wonder-ebi.begin.app/api/cats', {
+        let baseUrl =  'http://localhost:3333/' //'https://wonder-ebi.begin.app/'
+        fetch(baseUrl + 'api/cats', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -14,7 +15,7 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         .then(resp => resp.json())
         .then (resp => {
             console.log("Response:", resp)
-            url = "https://wonder-ebi.begin.app/api/cats/" + resp.key
+            url = baseUrl + "api/cats/" + resp.key
             document.getElementById('text').innerHTML = url
           })
       }

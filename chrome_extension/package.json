@@ -1,0 +1,14 @@
+{
+  "name": "hyperlinkit",
+  "version": "1.0.0",
+  "description": "test chrome plugin that can inject javascript",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Himadri Kakran",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
+}
