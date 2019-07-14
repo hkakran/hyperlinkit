@@ -5,12 +5,13 @@ fetch('https://raw.githubusercontent.com/fczbkk/css-selector-generator/master/bu
 
 
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
+  response = {}
   if (request.method == "getSelection")
   {
       let my_selector_generator = new CssSelectorGenerator;
       let selection = window.getSelection();
       console.log("Selection: ", selection)
-      if (selection.rangeCount > 0) {
+      if (selection.rangeCount > 0 && selection.type === 'Range') {
         let range = selection.getRangeAt(0);
         if (range != undefined) {
           containerElement = range.commonAncestorContainer;
@@ -25,17 +26,21 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
           sendResponse(response)
         }
         else {
+          response = {selection_found:false}
           console.log("Resp else 1: ", JSON.stringify(response));
 
-          sendResponse({selection_found:false})
+          sendResponse(response)
         }
       }
       else {
         console.log("Resp else 2: ", JSON.stringify(response));
 
-        sendResponse({selection_found:false})
+        sendResponse(response)
       }
   }
-  else
-    sendResponse({}); // snub them.
+  else{
+    console.log("Send Empty response")
+    sendResponse(response); // snub them.
+  }
+
 });
