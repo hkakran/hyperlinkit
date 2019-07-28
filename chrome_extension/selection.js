@@ -1,8 +1,7 @@
-fetch('https://raw.githubusercontent.com/fczbkk/css-selector-generator/master/build/css-selector-generator.min.js')
-  .then(response => response.text())
-  .then(text => eval(text))
-  .then(() => {
-    console.log("Loaded css generator")
+// fetch('https://raw.githubusercontent.com/fczbkk/css-selector-generator/master/build/css-selector-generator.min.js')
+//   .then(response => response.text())
+//   .then(text => eval(text))
+//   .then(() => {
     let my_selector_generator = new CssSelectorGenerator;
     let selection = window.getSelection();
     console.log("Selection: ", selection)
@@ -27,10 +26,9 @@ fetch('https://raw.githubusercontent.com/fczbkk/css-selector-generator/master/bu
       }
     }
     else {
-      console.log("Resp else 2: ", JSON.stringify(response));
-      response
+      console.log("No selected text on screen");
     }
-  });
+  // });
 
 
 
