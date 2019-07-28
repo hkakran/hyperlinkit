@@ -1,12 +1,10 @@
 async function loadLink() {
     $(document).ready(function() {   // Load the function after DOM ready.
         chrome.storage.local.get('currentLinkInfo', function(linkInfo) {
-            // console.log('The color is green.');
-            console.log(linkInfo);
+            console.log("Need to load link info: ", linkInfo);
             if (!linkInfo || !linkInfo.currentLinkInfo || !linkInfo.currentLinkInfo.selector) {
                 return;
             }
-            console.log(linkInfo.currentLinkInfo.selector);
             let targetElement = document.querySelector(linkInfo.currentLinkInfo.selector);
             if (!targetElement) {
                 console.log('Element not found');
@@ -14,7 +12,7 @@ async function loadLink() {
             }
             targetElement.scrollIntoView();
             targetElement.style.backgroundColor = "yellow"; 
-            console.log("Found Element: ", targetElement);
+            console.log("Found Element");
 
             //clearing storage value
             chrome.storage.local.set({
@@ -32,10 +30,10 @@ async function main() {
         let results = await fetch(baseUrl + 'api/cats')
         let links = await results.json()
         let key = currentUrl.substring(currentUrl.indexOf(baseUrl + 'api/cats/') + 31);
-        console.log('Key to load is: ', key);
         let foundInfo = links.find(function(element) {
             return element.key == key;
         });
+        console.log('Key to load is: ', foundInfo);
         chrome.storage.local.set({
             'currentLinkInfo': foundInfo
         });

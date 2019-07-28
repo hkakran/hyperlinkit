@@ -30,6 +30,7 @@ function onExecuted(result) {
 
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
   chrome.tabs.executeScript(tabs[0].Id, { file: "node_modules/css-selector-generator/build/css-selector-generator.min.js" }, function() {
+    console.log('loaded');
     chrome.tabs.executeScript(
     tabs[0].Id,
     {

@@ -2,10 +2,19 @@
 //   .then(response => response.text())
 //   .then(text => eval(text))
 //   .then(() => {
+
+function doWithTimer(func) {
+
+  let startTime = Date.now();
+  let ret = func();
+  let endTime = Date.now();
+  console.log("Timing block: ", endTime - startTime);
+  return ret;
+}
 function selection () {
   let my_selector_generator = new CssSelectorGenerator;
   let selection = window.getSelection();
-  console.log("Selection: ", selection)
+  // console.log("Selection: ", selection)
   if (selection.rangeCount > 0 && selection.type === 'Range') {
     let range = selection.getRangeAt(0);
     if (range != undefined) {
@@ -14,15 +23,15 @@ function selection () {
       {
         containerElement = containerElement.parentNode
       }
-      console.log("Element: ", containerElement);
-      let selector = my_selector_generator.getSelector(containerElement);
+      // console.log("Element: ", containerElement);
+      let selector = doWithTimer(() => { return my_selector_generator.getSelector(containerElement) });
       response = {selection_found: true,selector: selector, url: window.location.href}
-      console.log("Resp: ", JSON.stringify(response));
+      // console.log("Resp: ", JSON.stringify(response));
       return response
     }
     else {
       response = {selection_found:false}
-      console.log("Resp else 1: ", JSON.stringify(response));
+      // console.log("Resp else 1: ", JSON.stringify(response));
       return response
     }
   }

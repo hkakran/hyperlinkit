@@ -17,7 +17,7 @@
         "node_modules/jquery/dist/jquery.min.js",
         "link_loader.js"
       ],
-      "run_at": "document_end"
+      "run_at": "document_idle"
     }
   ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
