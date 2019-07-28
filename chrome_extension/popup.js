@@ -29,11 +29,13 @@ function onExecuted(result) {
 }
 
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-  chrome.tabs.executeScript(
-  tabs[0].Id,
-  {
-      file:"/selection.js",
-      allFrames: false
-  },
-  onExecuted);
+  chrome.tabs.executeScript(tabs[0].Id, { file: "node_modules/css-selector-generator/build/css-selector-generator.min.js" }, function() {
+    chrome.tabs.executeScript(
+    tabs[0].Id,
+    {
+        file:"/selection.js",
+        allFrames: false
+    },
+    onExecuted);
+  })
 });
