@@ -13,6 +13,7 @@ async function loadLink() {
                 return;
             }
             targetElement.scrollIntoView();
+            targetElement.style.backgroundColor = "yellow"; 
             console.log("Found Element: ", targetElement);
         });
     });
