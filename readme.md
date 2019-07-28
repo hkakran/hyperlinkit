@@ -28,3 +28,11 @@ Iframe - https://stackoverflow.com/questions/8284217/iframe-and-external-website
 https://stackoverflow.com/questions/1482832/how-to-get-all-elements-that-are-highlighted  
 https://github.com/fczbkk/css-selector-generator  
 https://stackoverflow.com/questions/2068272/getting-a-jquery-selector-for-an-element
+"content_scripts": [
+  {
+    "matches": ["<all_urls>"],
+    "js": ["selection.js"],
+    "run_at": "document_start",
+    "all_frames": false
+  }
+],
