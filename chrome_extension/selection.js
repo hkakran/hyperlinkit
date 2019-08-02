@@ -4,7 +4,6 @@
 //   .then(() => {
 
 function doWithTimer(func) {
-
   let startTime = Date.now();
   let ret = func();
   let endTime = Date.now();

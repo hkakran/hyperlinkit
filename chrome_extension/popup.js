@@ -5,7 +5,7 @@ function onExecuted(result) {
   if (!response) {
     return;
   }
-  let url = 'http://localhost:3333/api/cats'; //'https://wonder-ebi.begin.app/api/cats'
+  let url = 'https://wonder-ebi.begin.app/api/cats' // 'http://localhost:3333/api/cats'
   if (response.selection_found) {
     fetch(url, {
       method: 'POST',

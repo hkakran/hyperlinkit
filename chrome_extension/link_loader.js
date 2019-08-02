@@ -24,16 +24,20 @@ async function loadLink() {
 
 async function main() {
     let currentUrl = window.location.href;
-    console.log(currentUrl);
-    let baseUrl = 'http://localhost:3333/' // 'wonder-ebi.begin.app/'
-    if (currentUrl.indexOf(baseUrl) !== -1) {
-        let results = await fetch(baseUrl + 'api/cats')
+    let baseUrl = 'https://wonder-ebi.begin.app/' // 'http://localhost:3333/'
+    let subDomain = 'api/cats';
+    let keyCursor = currentUrl.indexOf(subDomain)
+    if (currentUrl.indexOf(baseUrl) !== -1 && keyCursor != 0) {
+        let key = currentUrl.substring(baseUrl.length + subDomain.length + 1);
+        console.log(key);
+        let results = await fetch(baseUrl + subDomain)
         let links = await results.json()
-        let key = currentUrl.substring(currentUrl.indexOf(baseUrl + 'api/cats/') + 31);
         let foundInfo = links.find(function(element) {
             return element.key == key;
         });
-        console.log('Key to load is: ', foundInfo);
+        if (!foundInfo) {
+            console.log("Didn't find key information");
+        }
         chrome.storage.local.set({
             'currentLinkInfo': foundInfo
         });
